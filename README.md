@@ -10,3 +10,8 @@ Our GenVideo will be public at https://github.com/ant-research/Gen-Video.
 ![](figs/logo.png)
 <p align="center"><em>In memory of Kobe Bryant</em></p>
 
+## Leaderboard
+
+
+
+## Contact
