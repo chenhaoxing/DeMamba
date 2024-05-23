@@ -5,6 +5,32 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 Our GenVideo will be public at https://github.com/ant-research/Gen-Video.
 
 Statistics of real and generated videos in the GenVideo dataset:
+| **Video Source**                                    | **Type** | **Task** | **Time** | **Resolution** | **FPS** | **Length** | **Training Set** | **Testing Set** | **Total Count** |
+|-----------------------------------------------------|----------|----------|----------|----------------|---------|------------|------------------|----------------|-----------------|
+| Kinetics-400               | Real     | -        | 17.05    | 224-340        | -       | 5-10s      | 260,232          | -              | 1,213,511       |
+| Youku-mPLUG~                     | Real     | -        | 23.07    | -              | -       | 10-120s    | 953,279          | -              |                 |
+| MSR-VTT                           | Real     | -        | 16.05    | -              | -       | 10-30s     | -                | 10,000         | 10,000          |
+| ZeroScope                       | Fake     | T2V      | 23.07    | 1024×576       | 8       | 3s         | 132,465          | -              | 1,048,575       |
+| I2VGen-XL                         | Fake     | I2V      | 23.12    | 1280×720       | 8       | 2s         | 61,391           | -              |                 |
+| SVD                     | Fake     | I2V      | 23.12    | 1024×576       | 8       | 4s         | 149,026          | -              |                 |
+| VideoCrafte          | Fake     | T2V      | 24.01    | 1024×576       | 8       | 2s         | 37,970           | -              |                 |
+| Pika                                   | Fake     | T2V&I2V  | 24.02    | 1088×640       | 24      | 3s         | 96,058           | -              |                 |
+| DynamiCrafter         | Fake     | I2V      | 24.03    | 1024×576       | 8       | 3s         | 44,681           | -              |                 |
+| SD                             | Fake     | T2V&I2V  | 23-24    | 512-1024       | 8       | 2-6s       | 199,838          | -              |                 |
+| SEINE                         | Fake     | I2V      | 24.04    | 1024×576       | 8       | 2-4s       | 2,408            | -              |                 |
+| Latte                           | Fake     | T2V      | 24.03    | 512×512        | 8       | 2s         | 149,979          | -              |                 |
+| OpenSora                           | Fake     | T2V      | 24.03    | 512×512        | 8       | 2s         | 174,759          | -              |                 |
+| ModelScope               | Fake     | T2V      | 23.03    | 256×256        | 8       | 4s         | -                | 700            | 8,588           |
+| MorphStudio                     | Fake     | T2V      | 23.08    | 1280×720       | 8       | 2s         | -                | 700            |                 |
+| MoonValley                       | Fake     | T2V      | 24.01    | 1024×576       | 16      | 3s         | -                | 626            |                 |
+| HotShot                           | Fake     | T2V      | 23.10    | 672×384        | 8       | 1s         | -                | 700            |                 |
+| Show_1                       | Fake     | T2V      | 23.10    | 576×320        | 8       | 4s         | -                | 700            |                 |
+| Gen2                     | Fake     | I2V&T2V  | 23.09    | 896×512        | 24      | 4s         | -                | 1,380          |                 |
+| Crafter               | Fake     | T2V      | 23.04    | 256×256        | 8       | 4s         | -                | 1,400          |                 |
+| Lavie                                 | Fake     | T2V      | 23.09    | 1280×2048      | 8       | 2s         | -                | 1,400          |                 |
+| Sora                                 | Fake     | T2V      | 24.02    | -              | -       | -60s       | -                | 56             |                 |
+| WildScrape                                          | Fake     | T2V&I2V  | 24       | 512-1024       | 8-16    | 2-6s       | -                | 926            |                 |
+| **Total Count**                                     | -        | -        | -        | -              | -       | -          | 2,262,086        | 19,588         | 2,271,674       |
 
 ## Detail Mamba (DeMamba)
 
