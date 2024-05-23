@@ -10,7 +10,7 @@ Our GenVideo will be public at https://github.com/ant-research/Gen-Video.
 ![](figs/logo.png)
 <p align="center"><em>In memory of Kobe Bryant</em></p>
 
-> "Determination wins games, but Detail wins championships." — *Kobe Bryant, NBA farewell speech, 2016*
+> "Determination wins games, but Detail wins championships." — *Kobe Bryant, in his Show Detail, 2018*
 
 
 
