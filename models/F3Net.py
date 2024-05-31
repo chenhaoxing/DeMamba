@@ -108,7 +108,7 @@ class F3Net(nn.Module):
         x_cat = torch.cat((x_fad, x_fls), dim=1)
         x_drop = self.dp(x_cat)
         logit = self.fc(x_drop)
-        return x_cat, logit
+        return logit
 
 class SeparableConv2d(nn.Module):
     def __init__(self,in_channels,out_channels,kernel_size=1,stride=1,padding=0,dilation=1,bias=False):
@@ -427,6 +427,15 @@ class Det_F3_Net(nn.Module):
         sequence_output = self.f3net(images)
 
         return sequence_output
+        
+    def infer(self, x):
+        b, t, _, h, w = x.shape
+        images = x.view(b * t, 3, h, w)
+        sequence_output = self.f3net(images)
+        sequence_output = sequence_output.view(b, t, -1)
+        res = sequence_output.mean(1)
+        return res
+
 
 if __name__ == '__main__':
     model = F3Net()
