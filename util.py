@@ -41,7 +41,11 @@ def eval_model(cfg, model, val_loader, loss_ce, val_batch_size):
             varTarget = torch.autograd.Variable(target.contiguous().cuda())
             var_Binary_Target = torch.autograd.Variable(binary_label.contiguous().cuda())
 
-            logit = model(varInput)
+            if cfg['model'] == 'F3Net' or cfg['model'] == 'NPR' or cfg['model'] == 'CLIP':
+                logit = model.infer(varInput)
+            else:
+                logit = model(varInput)
+                
             lossvalue = loss_ce(logit, var_Binary_Target)
 
             valLoss += lossvalue.item()
