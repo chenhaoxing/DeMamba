@@ -1,0 +1,13 @@
+model: 'XCLIP_DeMamba'
+tuning_mode: 'sft'
+task: 'many2many'
+
+save_dir: './results/XCLIP_Mamba_2'
+
+max_epoch: 30
+bath_per_epoch: 4000
+
+train_batch_size: 128
+val_batch_size: 64
+num_workers: 64
+lr: 0.000001
