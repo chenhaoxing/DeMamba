@@ -113,8 +113,8 @@ Statistics of real and generated videos in the GenVideo dataset:
 If you use GenVideo or DeMamba in your research or use the codebase here, please use the following BibTeX entry.
 
 ```BibTeX
-@article{DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark,
-      title={DiffusionInst: Diffusion Model for Instance Segmentation},
+@article{DeMamba,
+      title={DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark},
       author={Haoxing Chen and Yan Hong and Zizheng Huang and Zhuoer Xu and Zhangxuan Gu and Yaohui Li and Jun Lan and Huijia Zhu and Jianfu Zhang and Weiqiang Wang and Huaxiong Li},
       journal={arXiv preprint arXiv:2405.19707},
       year={2024}
