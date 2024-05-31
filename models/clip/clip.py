@@ -122,7 +122,7 @@ def load(name: str, device: Union[str, torch.device] = "cuda" if torch.cuda.is_a
     # else:
     #     raise RuntimeError(f"Model {name} not found; available models = {available_models()}")
 
-    model_path = '/mnt/new/yansan/models/openclip/' + name +'.pt'
+    model_path = 'weights/openclip/' + name +'.pt'
     print(model_path)
     try:
         # loading JIT archive
