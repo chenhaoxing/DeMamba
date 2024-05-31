@@ -1,7 +1,7 @@
 This is the official code of paper 'DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark'.
 
 ## :dart: Todo
-- [ ] Release source code.
+- [x] Release source code.
 - [ ] Release dataset. (In progress, obtaining legal and corporate clearance)
 
 
