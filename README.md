@@ -44,7 +44,7 @@ Statistics of real and generated videos in the GenVideo dataset:
 
 > "Determination wins games, but Detail wins championships." — *Kobe Bryant, in his Show Detail, 2018*
 
-![](figs/demamba.jpg)
+![](figs/VFOD.png)
 <p align="center"><em>The overall framework of our Detail Mamba (DeMamba)</em></p>
 
 
