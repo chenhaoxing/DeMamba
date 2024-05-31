@@ -121,6 +121,9 @@ If you use GenVideo or DeMamba in your research or use the codebase here, please
 }
 ```
 
+## Acknowledgement
+Many thanks to the nice work of [STIL](https://github.com/wizyoung/STIL-DeepFake-Video-Detection), [CLIP](https://github.com/openai/CLIP), [XCLIP](https://github.com/microsoft/VideoX/tree/master/X-CLIP), [NPR](https://github.com/chuangchuangtan/NPR-DeepfakeDetection/tree/main) and [VideoMAE](https://github.com/MCG-NJU/VideoMAE-Action-Detection). 
+
 ## :email: Contact
 If you have any questions, feel free to contact us: hx.chen@hotmail.com.
 
