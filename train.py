@@ -18,7 +18,7 @@ def get_arguments():
     return args
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     args = get_arguments()
     assert (os.path.exists(args.config))
     cfg = yaml.load(open(args.config, 'r'), Loader=yaml.Loader)
