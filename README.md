@@ -2,12 +2,12 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 
 ## :dart: Todo
 - [x] Release source code.
-- [ ] Release dataset. (In progress, obtaining legal and corporate clearance)
+- [ ] Release dataset. (We are uploading the dataset, which may take a few days due to speed limitations.)
 
 
 ## :file_folder: Dataset download
 ![](figs/tab_fig.jpg)
-Our GenVideo will be public at https://github.com/ant-research/Gen-Video.
+Our GenVideo is public at [https://modelscope.cn/datasets/cccnju/Gen-Video](https://modelscope.cn/datasets/cccnju/Gen-Video).
 
 Statistics of real and generated videos in the GenVideo dataset:
 | **Video Source**                                    | **Type** | **Task** | **Time** | **Resolution** | **FPS** | **Length** | **Training Set** | **Testing Set** | **Total Count** |
