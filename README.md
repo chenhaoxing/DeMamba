@@ -9,6 +9,10 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 ![](figs/tab_fig.jpg)
 Our GenVideo is public at [https://modelscope.cn/datasets/cccnju/Gen-Video](https://modelscope.cn/datasets/cccnju/Gen-Video).
 
+### Data preparation process
+ - Download the original videos.
+ - Preprocess the video and get the data list csv file.
+
 Statistics of real and generated videos in the GenVideo dataset:
 | **Video Source**                                    | **Type** | **Task** | **Time** | **Resolution** | **FPS** | **Length** | **Training Set** | **Testing Set** | **Total Count** |
 |-----------------------------------------------------|----------|----------|----------|----------------|---------|------------|------------------|----------------|-----------------|
