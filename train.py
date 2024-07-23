@@ -12,7 +12,7 @@ from torch.optim.lr_scheduler import StepLR, LambdaLR, MultiStepLR
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', dest='config', help='settings of Tip-Adapter in yaml format')
+    parser.add_argument('--config', dest='config', help='settings of detector in yaml format')
     args = parser.parse_args()
 
     return args
