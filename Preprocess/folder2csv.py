@@ -60,7 +60,7 @@ for video_path in all_dirs:
 dic={
     'content_path': Series(data=content_paths),
     'image_path': Series(data=save_path),
-    'activity_id': Series(data=chinese_labels),
+    'type_id': Series(data=chinese_labels),
     'label': Series(data=label),
     'frame_len': Series(data=frame_counts),
     'frame_seq': Series(data=frame_seq_counts)
