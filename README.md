@@ -21,7 +21,7 @@ Statistics of real and generated videos in the GenVideo dataset:
 | **Video Source**                                    | **Type** | **Task** | **Time** | **Resolution** | **FPS** | **Length** | **Training Set** | **Testing Set** |
 |-----------------------------------------------------|----------|----------|----------|----------------|---------|------------|------------------|----------------|
 | Kinetics-400               | Real     | -        | 17.05    | 224-340        | -       | 5-10s      | 260,232          | -              |
-| Youku-mPLUG~                     | Real     | -        | 23.07    | -              | -       | 10-120s    | 953,279          | -             |
+| Youku-mPLUG                     | Real     | -        | 23.07    | -              | -       | 10-120s    | 953,279          | -             |
 | MSR-VTT                           | Real     | -        | 16.05    | -              | -       | 10-30s     | -                | 10,000         |
 | ZeroScope                       | Fake     | T2V      | 23.07    | 1024×576       | 8       | 3s         | 133,169          | -             |
 | I2VGen-XL                         | Fake     | I2V      | 23.12    | 1280×720       | 8       | 2s         | 61,975           | -            |
