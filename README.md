@@ -7,10 +7,11 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 
 ## :file_folder: Dataset download
 ![](figs/tab_fig.jpg)
-Our GenVideo is public at [https://modelscope.cn/datasets/cccnju/Gen-Video](https://modelscope.cn/datasets/cccnju/Gen-Video).
 
 ### Data preparation process
  - Download the original videos.
+   - Generated videos: all generated videos can download at [https://modelscope.cn/datasets/cccnju/Gen-Video](https://modelscope.cn/datasets/cccnju/Gen-Video).
+   - Real videos: The data from the MSRVTT dataset is contained within the GenVideo-Val.zip file. We also provided the selected Youku videos in previous link . For Kinetics-400, you will need to download it yourself at [https://github.com/cvdfoundation/kinetics-dataset](https://github.com/cvdfoundation/kinetics-dataset).
  - Preprocess the video and get the data list csv file.
 
 Statistics of real and generated videos in the GenVideo dataset:
