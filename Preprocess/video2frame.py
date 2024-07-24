@@ -44,10 +44,10 @@ if __name__ == '__main__':
     print("Getting frames!!")
     video_paths = './SD'
     all_dirs = []
-    from pathlib import Path
-
     all_dirs = glob(video_paths+'/*')
+    
     print(all_dirs)
+    
     pool = multiprocessing.Pool(processes=8)
     pool.map(process_video, all_dirs)
     pool.close()
