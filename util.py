@@ -130,27 +130,114 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
             file.write(f"AUC是: {auc:.2%}\n")
             file.write(f"AP是: {ap:.2%}\n")
 
-        prefixes = ["fake/ModelScope", "fake/Floor33", "fake/MoonValley", 
-            "fake/Hotshot", "fake/Show_1", "fake/Sora", "fake/Web", 
-            "fake/Videocrafter", "fake/Lavie", "fake/Gen2","Real"]
+        prefixes = ["fake/EvalCrafter_T2V_Dataset/modelscope", "fake/EvalCrafter_T2V_Dataset/floor33", "fake/EvalCrafter_T2V_Dataset/MoonValley", 
+            "fake/EvalCrafter_T2V_Dataset/hotshot", "fake/EvalCrafter_T2V_Dataset/show_1", "fake/sora", "fake/0401"]
 
+        video_crafters = ["fake/EvalCrafter_T2V_Dataset/videocrafter-v1.0", "fake/EvalCrafter_T2V_Dataset/mix-sr"]
+        lavies = ["fake/EvalCrafter_T2V_Dataset/lavie-base", "fake/EvalCrafter_T2V_Dataset/lavie-interpolation"]
+        gen2s = ["fake/EvalCrafter_T2V_Dataset/gen2", "fake/EvalCrafter_T2V_Dataset/gen2_december"]
 
-        for temp_prefixes in prefixes:
+        video_nums = [700, 700, 626, 700, 700, 56, 926]
+
+        # real 
+        condition = df_result['data_path'].apply(lambda x: x.startswith("real"))
+        temp_df_val = df_result[condition]
+        temp_df_val['correct'] = temp_df_val['predicted_label'] == temp_df_val['actual_label']
+        accuracy = temp_df_val['correct'].mean()
+
+        FP = int((1-accuracy) * 10000)
+
+        for index, temp_prefixes in enumerate(prefixes):
             condition = df_result['data_path'].apply(lambda x: x.startswith(temp_prefixes))
             temp_df_val = df_result[condition]
             temp_df_val['correct'] = temp_df_val['predicted_label'] == temp_df_val['actual_label']
             accuracy = temp_df_val['correct'].mean()
 
+            TP = int(accuracy * video_nums[index])
+            FN = int((1-accuracy) * video_nums[index])
+            P, R = TP / (TP + FP), TP / (TP + FN)
+            F1 = 2 * P * R / (P + R)
+
             condition |= df_result['data_path'].str.startswith('real')
             temp_df_val = df_result[condition]
             true_labels = temp_df_val['actual_label']
-            pred_probs = temp_df_val['predicted_prob']  
+            pred_probs = temp_df_val['predicted_prob']  # 假设这是模型预测的概率
             ap = average_precision_score(true_labels, pred_probs)
             with open(temp_result_txt, 'a') as file:
                 # Extract the last part of the prefix to use as the filename
                 name = temp_prefixes.split('/')[-1]
-                file.write(f"文件名: {name}, 正确率是: {accuracy:.2%}\n")
-                file.write(f"文件名: {name}, AP是: {ap:.2%}\n")
+                file.write(f"文件名: {name}, F1是: {F1}\n")
+                file.write(f"文件名: {name}, AP是: {ap}\n")
+
+        # video_crafter
+        video_crafter_condition = df_result['data_path'].str.startswith(video_crafters[0])
+        for lavie in video_crafters[1:]:
+            video_crafter_condition |= df_result['data_path'].str.startswith(lavie)
+        
+        temp_df_video_crafters = df_result[video_crafter_condition]
+        temp_df_video_crafters['correct'] = temp_df_video_crafters['predicted_label'] == temp_df_video_crafters['actual_label']
+        accuracy = temp_df_video_crafters['correct'].mean()
+        
+        TP = int(accuracy * 1400)
+        FN = int((1-accuracy) * 1400)
+        P, R = TP / (TP + FP), TP / (TP + FN)
+        F1 = 2 * P * R / (P + R)
+        
+        video_crafter_condition |= df_result['data_path'].str.startswith('real')
+        temp_df_video_crafters = df_result[video_crafter_condition]
+        true_labels = temp_df_video_crafters['actual_label']
+        pred_probs = temp_df_video_crafters['predicted_prob']  # 假设这是模型预测的概率
+        ap = average_precision_score(true_labels, pred_probs)
+        with open(temp_result_txt, 'a') as file:
+            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: video_crafter, F1是: {F1}\n")
+            file.write(f"文件名: video_crafter, AP是: {ap}\n")
+
+        # lavie
+        lavies_condition = df_result['data_path'].str.startswith(lavies[0])
+        for lavie in lavies[1:]:
+            lavies_condition |= df_result['data_path'].str.startswith(lavie)
+        temp_df_lavies = df_result[lavies_condition]
+        temp_df_lavies['correct'] = temp_df_lavies['predicted_label'] == temp_df_lavies['actual_label']
+        accuracy = temp_df_lavies['correct'].mean()
+        
+        TP = int(accuracy * 1400)
+        FN = int((1-accuracy) * 1400)
+        P, R = TP / (TP + FP), TP / (TP + FN)
+        F1 = 2 * P * R / (P + R)
+        
+        lavies_condition |= df_result['data_path'].str.startswith('real')
+        temp_df_lavies = df_result[lavies_condition]
+        true_labels = temp_df_lavies['actual_label']
+        pred_probs = temp_df_lavies['predicted_prob']  # 假设这是模型预测的概率
+        ap = average_precision_score(true_labels, pred_probs)
+        with open(temp_result_txt, 'a') as file:
+            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: lavies, F1是: {F1}\n")
+            file.write(f"文件名: lavies, AP是: {ap}\n")
+
+        # gen2
+        gen2s_condition = df_result['data_path'].str.startswith(gen2s[0])
+        for gen2 in gen2s[1:]:
+            gen2s_condition |= df_result['data_path'].str.startswith(gen2)
+        temp_df_gen2s = df_result[gen2s_condition]
+        temp_df_gen2s['correct'] = temp_df_gen2s['predicted_label'] == temp_df_gen2s['actual_label']
+        accuracy = temp_df_gen2s['correct'].mean()
+        
+        TP = int(accuracy * 1380)
+        FN = int((1-accuracy) * 1380)
+        P, R = TP / (TP + FP), TP / (TP + FN)
+        F1 = 2 * P * R / (P + R)
+        
+        gen2s_condition |= df_result['data_path'].str.startswith('real')
+        temp_df_gen2s = df_result[gen2s_condition]
+        true_labels = temp_df_gen2s['actual_label']
+        pred_probs = temp_df_gen2s['predicted_prob']  # 假设这是模型预测的概率
+        ap = average_precision_score(true_labels, pred_probs)
+        with open(temp_result_txt, 'a') as file:
+            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: gen2, F1是: {F1}\n")
+            file.write(f"文件名: gen2, AP是: {ap}\n")
         
         print("*****Average Training loss",str(trainLoss),"*****\n")
         print("*****Epoch", str(epochID), "*****Acc ", str(pred_accuracy), '*****',
@@ -158,3 +245,4 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
     end_time = time.time()
 
     return max_epoch, max_acc, end_time - ss_time
+
