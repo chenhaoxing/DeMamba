@@ -20,6 +20,10 @@ def build_model(model_name):
         model = models.CLIP_DeMamba()
     if model_name == 'XCLIP':
         model = models.XCLIP()
+    if model_name == 'CLIP':
+        model = models.CLIP_Base()
+    if model_name == 'ViT_B_MINTIME':
+        model = models.ViT_B_MINTIME()
     return model
 
 def eval_model(cfg, model, val_loader, loss_ce, val_batch_size):
@@ -41,11 +45,7 @@ def eval_model(cfg, model, val_loader, loss_ce, val_batch_size):
             varTarget = torch.autograd.Variable(target.contiguous().cuda())
             var_Binary_Target = torch.autograd.Variable(binary_label.contiguous().cuda())
 
-            if cfg['model'] == 'F3Net' or cfg['model'] == 'NPR' or cfg['model'] == 'CLIP':
-                logit = model.infer(varInput)
-            else:
-                logit = model(varInput)
-                
+            logit = model(varInput)
             lossvalue = loss_ce(logit, var_Binary_Target)
 
             valLoss += lossvalue.item()
@@ -166,6 +166,7 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
             with open(temp_result_txt, 'a') as file:
                 # Extract the last part of the prefix to use as the filename
                 name = temp_prefixes.split('/')[-1]
+                file.write(f"文件名: {name}, Recall是: {accuracy}\n")
                 file.write(f"文件名: {name}, F1是: {F1}\n")
                 file.write(f"文件名: {name}, AP是: {ap}\n")
 
@@ -189,7 +190,7 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
         pred_probs = temp_df_video_crafters['predicted_prob']  # 假设这是模型预测的概率
         ap = average_precision_score(true_labels, pred_probs)
         with open(temp_result_txt, 'a') as file:
-            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: video_crafter, Recall是: {accuracy}\n")
             file.write(f"文件名: video_crafter, F1是: {F1}\n")
             file.write(f"文件名: video_crafter, AP是: {ap}\n")
 
@@ -212,7 +213,7 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
         pred_probs = temp_df_lavies['predicted_prob']  # 假设这是模型预测的概率
         ap = average_precision_score(true_labels, pred_probs)
         with open(temp_result_txt, 'a') as file:
-            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: lavies, Recall是: {accuracy}\n")
             file.write(f"文件名: lavies, F1是: {F1}\n")
             file.write(f"文件名: lavies, AP是: {ap}\n")
 
@@ -235,7 +236,7 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
         pred_probs = temp_df_gen2s['predicted_prob']  # 假设这是模型预测的概率
         ap = average_precision_score(true_labels, pred_probs)
         with open(temp_result_txt, 'a') as file:
-            # Extract the last part of the prefix to use as the filename
+            file.write(f"文件名: gen2, Recall是: {accuracy}\n")
             file.write(f"文件名: gen2, F1是: {F1}\n")
             file.write(f"文件名: gen2, AP是: {ap}\n")
         
@@ -245,4 +246,3 @@ def train_one_epoch(cfg, model, loss_ce, scheduler, optimizer, epochID, max_epoc
     end_time = time.time()
 
     return max_epoch, max_acc, end_time - ss_time
-
