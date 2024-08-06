@@ -83,7 +83,7 @@ class Ours_Dataset_train(Dataset):
                     try:
                         temp_image_path = video_id+'/'+str(x)+'.jpg'
                         image = download_oss_file('GenVideo/'+ temp_image_path)
-                        if video_id.startswith("real/youku") or video_id.startswith("fake/Pika") :
+                        if video_id.startswith("real/youku"):
                             image = crop_center_by_percentage(image, 0.15)
                         break
                     except Exception as e:
@@ -100,7 +100,7 @@ class Ours_Dataset_train(Dataset):
             for x in frame_list:
                 temp_image_path = video_id+'/'+str(x)+'.jpg'
                 image = download_oss_file('GenVideo/'+temp_image_path)
-                if video_id.startswith("real/youku") or video_id.startswith("fake/Pika"):
+                if video_id.startswith("real/youku"):
                     image = crop_center_by_percentage(image, 0.15)
                 augmented = trans(image=image)
                 image = augmented["image"]
