@@ -172,6 +172,8 @@ class ResNet(nn.Module):
         # if h%2 == 1 : x = x[:,:,:,:-1]
         b, t, _, h, w = x.shape
         x = x.view(b * t, 3, h, w)
+        
+
         NPR  = x - self.interpolate(x, 0.5)
 
         x = self.conv1(NPR*2.0/3.0)
@@ -185,6 +187,8 @@ class ResNet(nn.Module):
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
         x = self.fc1(x)
+        x = x.view(b, t, -1)
+        x = x.mean(1)
 
         return x
 
@@ -275,4 +279,6 @@ def resnet152_npr(pretrained=False, **kwargs):
     if pretrained:
         model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
     return model
+
+
 
