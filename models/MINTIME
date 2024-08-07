@@ -1,5 +1,5 @@
 """
-Mintime: Multi-Identity size-iNvariant TIMEsformer for Video Deepfake Detection@TIFS'2024
+MINTIME: Multi-Identity size-iNvariant TIMEsformer for Video Deepfake Detection@TIFS'2024
 Copyright (c) ISTI-CNR and its affiliates.
 Modified by Davide Alessandro Coccomini from https://github.com/davide-coccomini/MINTIME-Multi-Identity-size-iNvariant-TIMEsformer-for-Video-Deepfake-Detection
 """
