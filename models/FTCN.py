@@ -1,3 +1,9 @@
+'''
+Exploring Temporal Coherence for More General Video Face Forgery Detection @ ICCV'2021
+Copyright (c) Xiamen University and its affiliates.
+Modified by Yinglin Zheng from https://github.com/yinglinzheng/FTCN
+'''
+
 import torch
 from torch import nn
 from .time_transformer import TimeTransformer
