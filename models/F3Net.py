@@ -3,7 +3,6 @@ F3Net: Fusion, Feedback and Focus for Salient Object Detection @ AAAI'2020
 Copyright (c) University of Chinese Academy of Sciences and its affiliates.
 Modified by Jun Wei from https://github.com/weijun88/F3Net
 """
-
 import os
 import sys
 import numpy as np
@@ -239,7 +238,7 @@ def return_pytorch04_xception(pretrained=True):
     model = xception(pretrained=False)
     if pretrained:
         state_dict = torch.load(
-            '/ossfs/workspace/aigc_video/weights/xception-b5690688.pth')
+            '/ossfs/workspace/GenVideo/weights/xception-b5690688.pth')
         for name, weights in state_dict.items():
             if 'pointwise' in name:
                 state_dict[name] = weights.unsqueeze(-1).unsqueeze(-1)
@@ -425,17 +424,10 @@ class Det_F3_Net(nn.Module):
         b, t, _, h, w = x.shape
         images = x.view(b * t, 3, h, w)
         sequence_output = self.f3net(images)
+        sequence_output = sequence_output.view(b, t, -1)
+        sequence_output = sequence_output.mean(1)
 
         return sequence_output
-        
-    def infer(self, x):
-        b, t, _, h, w = x.shape
-        images = x.view(b * t, 3, h, w)
-        sequence_output = self.f3net(images)
-        sequence_output = sequence_output.view(b, t, -1)
-        res = sequence_output.mean(1)
-        return res
-
 
 if __name__ == '__main__':
     model = F3Net()
