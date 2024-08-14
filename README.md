@@ -7,7 +7,7 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 ## :dart: Todo
 
 - [x] Release source code.
-- [ ] Release dataset. (We are uploading the dataset, which may take a few days due to speed limitations.)
+- [x] Release dataset. 
 
 
 ## :file_folder: Dataset download
