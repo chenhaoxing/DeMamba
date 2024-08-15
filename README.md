@@ -1,7 +1,6 @@
 This is the official code of paper 'DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark'.
 
 ## :boom: News!!!
-- (08/14) :collision: We will be hosting a Short Video Authenticity Contest at the [Inclusion Conference](https://www.inclusionconf.com/) and [World Internet Conference](https://cn.wicinternet.org/), with generous prizes. Stay tuned!!!
 - (08/14) We will open source a more challenging test set that includes state-of-the-art generation algorithms such as Kling, jimeng, CogVideoX, etc.
 
 ## :dart: Todo
