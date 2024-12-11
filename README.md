@@ -1,10 +1,8 @@
 This is the official code of paper 'DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark'.
 
 ## :boom: News!!!
-- <div style="display: flex; align-items: center;">
-  <img src="figs/xty.jpg" alt="Description of the image" width="300" style="margin-right: 20px;">
-  <p>(12/11) We are pleased to announce that our AI-generated content (AIGC) video detection model, developed based on GenVideo, has passed the evaluation by the China Academy of Information and Communications Technology (CAICT) and achieved the highest rating, making us the first organization in China to be officially registered and approved.</p>
-</div>
+- (12/11) We are pleased to announce that our AI-generated content (AIGC) video detection model, developed based on GenVideo, has passed the evaluation by the China Academy of Information and Communications Technology (CAICT) and achieved the highest rating, making us the first organization in China to be officially registered and approved.
+<img src="figs/xty.jpg" alt="Description of the image" width="400" height="300">
 
 ## :dart: Todo
 
