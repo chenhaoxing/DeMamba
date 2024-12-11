@@ -1,7 +1,8 @@
 This is the official code of paper 'DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark'.
 
 ## :boom: News!!!
-- (08/14) We will open source a more challenging test set that includes state-of-the-art generation algorithms such as Kling, jimeng, CogVideoX, etc.
+- (12/11) We are pleased to announce that our AI-generated content (AIGC) video detection model, developed based on GenVideo, has passed the evaluation by the China Academy of Information and Communications Technology (CAICT) and achieved the highest rating, making us the first organization in China to be officially registered and approved.
+![](figs/xty.jpg)
 
 ## :dart: Todo
 
