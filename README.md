@@ -1,6 +1,7 @@
 This is the official code of paper 'DeMamba: AI-Generated Video Detection on Million-Scale GenVideo Benchmark'.
 
 ## :boom: News!!! 
+- (25.09.24) We have released a lightweight version of GenVideo, named [GenVideo-100K](https://modelscope.cn/datasets/cccnju/GenVideo-100K), with 10,000 samples for each forgery category.
 - (24.12.11) We are pleased to announce that our AI-generated content (AIGC) video detection model, developed based on GenVideo, has passed the evaluation by the China Academy of Information and Communications Technology (CAICT) and achieved the highest rating, making us the first organization in China to be officially registered and approved.[[certificate](https://github.com/chenhaoxing/DeMamba/blob/main/figs/xty.jpg)][[report](https://mp.weixin.qq.com/s/OoW7EI1QoSrQ3FIftfbudg)]
 
 
@@ -16,7 +17,7 @@ This is the official code of paper 'DeMamba: AI-Generated Video Detection on Mil
 ### Data preparation process
  - Download the original videos.
    
-   - Generated videos: all generated videos can download at [https://modelscope.cn/datasets/cccnju/Gen-Video](https://modelscope.cn/datasets/cccnju/Gen-Video).
+   - Generated videos: all generated videos can download at [ModelScope](https://modelscope.cn/collections/Gen-Video-7de46cd6846f4e).
      
    - Real videos: The data from the MSRVTT dataset is contained within the GenVideo-Val.zip file. We also provided the selected Youku videos in previous link . For Kinetics-400, you will need to download it yourself at [https://github.com/cvdfoundation/kinetics-dataset](https://github.com/cvdfoundation/kinetics-dataset).
      
